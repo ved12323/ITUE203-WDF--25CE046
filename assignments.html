@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments - Campus Compass Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Campus Compass</h2>
+            <p>Academic Year 2026-27</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="assignments.html" class="active">Assignments</a></li>
+            <li><a href="exams.html">Exams</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="timetable.html">Timetable</a></li>
+            <li><a href="fees.html">Fees</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- Top Navbar -->
+    <header class="top-navbar">
+        <span class="navbar-title">Assignments</span>
+        <div class="navbar-right">
+            <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+                <span class="theme-toggle-track">
+                    <span class="theme-toggle-thumb">
+                        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </span>
+                <span class="theme-toggle-text">Theme</span>
+            </button>
+            <span class="navbar-user">Welcome, Ved Khambadkar</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Assignments</h1>
+            <p>View your assignments and their submission status.</p>
+        </div>
+
+        <!-- Assignments Table -->
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Subject</th>
+                        <th>Assignment Title</th>
+                        <th>Given Date</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>FCN</td>
+                        <td>Write-up on TCP/IP Protocol</td>
+                        <td>01 Jul 2026</td>
+                        <td>10 Jul 2026</td>
+                        <td class="status-present">Submitted</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>FDSA</td>
+                        <td>Implement Linked List in C</td>
+                        <td>03 Jul 2026</td>
+                        <td>15 Jul 2026</td>
+                        <td class="status-absent">Pending</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>WDF</td>
+                        <td>Build a Static Website using HTML/CSS</td>
+                        <td>05 Jul 2026</td>
+                        <td>18 Jul 2026</td>
+                        <td class="status-present">Submitted</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Discrete Mathematics</td>
+                        <td>Solve Propositional Logic Problems</td>
+                        <td>07 Jul 2026</td>
+                        <td>17 Jul 2026</td>
+                        <td class="status-absent">Pending</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>OOP</td>
+                        <td>Write a Java Program for Class Inheritance</td>
+                        <td>02 Jul 2026</td>
+                        <td>12 Jul 2026</td>
+                        <td class="status-present">Submitted</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>UE-1</td>
+                        <td>Mini Project using Python</td>
+                        <td>10 Jul 2026</td>
+                        <td>25 Jul 2026</td>
+                        <td class="status-absent">Pending</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+    <script src="js/theme.js"></script>
+</body>
+</html>

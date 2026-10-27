@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Campus Compass Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Campus Compass</h2>
+            <p>Academic Year 2026-27</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="assignments.html">Assignments</a></li>
+            <li><a href="exams.html">Exams</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="timetable.html">Timetable</a></li>
+            <li><a href="fees.html">Fees</a></li>
+            <li><a href="settings.html" class="active">Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- Top Navbar -->
+    <header class="top-navbar">
+        <span class="navbar-title">Settings</span>
+        <div class="navbar-right">
+            <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+                <span class="theme-toggle-track">
+                    <span class="theme-toggle-thumb">
+                        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </span>
+                <span class="theme-toggle-text">Theme</span>
+            </button>
+            <span class="navbar-user">Welcome, Ved Khambadkar</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Settings</h1>
+            <p>Update your account settings.</p>
+        </div>
+
+        <!-- Appearance & Theme Preferences -->
+        <div class="card">
+            <h3 class="mb-10">Appearance & Theme</h3>
+            <p>Select your interface theme. Your preference is automatically synced across all pages.</p>
+            <div class="theme-options-grid">
+                <button type="button" class="theme-option-btn" data-theme-set="light">
+                    <div class="theme-option-preview preview-light">
+                        <span class="preview-sidebar"></span>
+                        <span class="preview-content">
+                            <span class="preview-line"></span>
+                            <span class="preview-card"></span>
+                        </span>
+                    </div>
+                    <div class="theme-option-label">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <span>Light Mode</span>
+                    </div>
+                </button>
+
+                <button type="button" class="theme-option-btn" data-theme-set="dark">
+                    <div class="theme-option-preview preview-dark">
+                        <span class="preview-sidebar"></span>
+                        <span class="preview-content">
+                            <span class="preview-line"></span>
+                            <span class="preview-card"></span>
+                        </span>
+                    </div>
+                    <div class="theme-option-label">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <span>Dark Mode</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Change Password -->
+        <div class="card">
+            <h3 class="mb-10">Change Password</h3>
+            <form class="settings-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" name="current-password" placeholder="Enter current password">
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" name="new-password" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password">
+                </div>
+                <button type="submit" class="btn">Update Password</button>
+            </form>
+        </div>
+
+        <!-- Update Contact Info -->
+
+        <div class="card">
+            <h3 class="mb-10">Update Contact Information</h3>
+            <form class="settings-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter Phone Number">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" placeholder="Enter Address"></textarea>
+                </div>
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Notification Preferences -->
+        <div class="card">
+            <h3 class="mb-10">Notification Preferences</h3>
+            <form class="settings-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="notifications">Email Notifications</label>
+                    <select id="notifications" name="notifications">
+                        <option value="all" selected>All Notifications</option>
+                        <option value="important">Important Only</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Save Preferences</button>
+            </form>
+        </div>
+
+    </main>
+    <script src="js/theme.js"></script>
+</body>
+</html>

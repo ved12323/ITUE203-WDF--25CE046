@@ -1,0 +1,4 @@
+data/registrations.json
+uploads/*
+!uploads/.gitkeep
+.env

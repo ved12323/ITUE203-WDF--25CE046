@@ -1,0 +1,18 @@
+<?php
+require 'db.php'; require_admin();
+$notice=''; $uploadDir=__DIR__.'/uploads'; if(!is_dir($uploadDir)) mkdir($uploadDir,0755,true);
+if ($_SERVER['REQUEST_METHOD']==='POST') {
+ $action=$_POST['action']??'';
+ if ($action==='delete') { $id=(int)($_POST['id']??0); $pdo->prepare('DELETE FROM events WHERE id=?')->execute([$id]); $notice='Event deleted.'; }
+ if ($action==='save') {
+  $title=trim($_POST['title']??''); $category=trim($_POST['category']??'General'); $date=$_POST['event_date']??''; $venue=trim($_POST['venue']??''); $description=trim($_POST['description']??''); $poster=null;
+  if($title==='' || $venue==='' || !preg_match('/^\d{4}-\d{2}-\d{2}$/',$date)) $notice='Enter a title, valid date, and venue.';
+  else {
+   if(!empty($_FILES['poster']['name'])) { $f=$_FILES['poster']; $allowed=['image/jpeg'=>'jpg','image/png'=>'png','image/webp'=>'webp']; $mime=(new finfo(FILEINFO_MIME_TYPE))->file($f['tmp_name']); if($f['error']!==UPLOAD_ERR_OK || $f['size']>2*1024*1024 || !isset($allowed[$mime])) $notice='Poster must be JPG, PNG, or WebP and no larger than 2 MB.'; else { $poster=bin2hex(random_bytes(12)).'.'.$allowed[$mime]; move_uploaded_file($f['tmp_name'],$uploadDir.'/'.$poster); } }
+   if(!$notice) { $q=$pdo->prepare('INSERT INTO events(title,category,event_date,venue,description,poster,created_by) VALUES(?,?,?,?,?,?,?)'); $q->execute([$title,$category,$date,$venue,$description,$poster,$_SESSION['user_id']]); $notice='Event added.'; $pdo->prepare('INSERT INTO audit_logs(user_id,action,details) VALUES(?,?,?)')->execute([$_SESSION['user_id'],'event_created',$title]); }
+  }
+ }
+}
+$rows=$pdo->query('SELECT * FROM events ORDER BY event_date DESC')->fetchAll();
+?>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Event Manager</title><style>body{font:15px system-ui;background:#f4f7fb;color:#172033;padding:25px}.wrap{max-width:1000px;margin:auto}.panel{background:white;padding:20px;border-radius:14px;margin:16px 0}input,textarea{padding:9px;margin:5px;border:1px solid #ccd3df;border-radius:7px}button{padding:9px 13px;background:#3157d5;color:white;border:0;border-radius:7px}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px;border-bottom:1px solid #e4e9f1}.msg{background:#e8f8ee;padding:12px;border-radius:8px}</style><main class="wrap"><p><a href="dashboard.php">← Dashboard</a></p><h1>Event management</h1><?php if($notice):?><p class="msg"><?=h($notice)?></p><?php endif;?><section class="panel"><h2>Add event</h2><form method="post" enctype="multipart/form-data"><input type="hidden" name="action" value="save"><input name="title" placeholder="Event title" required><input name="category" placeholder="Category"><input type="date" name="event_date" required><input name="venue" placeholder="Venue" required><input type="file" name="poster" accept="image/png,image/jpeg,image/webp"><p><textarea name="description" placeholder="Short description" rows="3" style="width:95%"></textarea></p><button>Save event</button></form><small>Poster formats: JPG, PNG, WebP; maximum 2 MB.</small></section><section class="panel"><h2>Current events</h2><table><tr><th>Title</th><th>Date</th><th>Venue</th><th>Poster</th><th>Action</th></tr><?php foreach($rows as $r):?><tr><td><?=h($r['title'])?></td><td><?=h($r['event_date'])?></td><td><?=h($r['venue'])?></td><td><?=h($r['poster']??'—')?></td><td><form method="post" onsubmit="return confirm('Delete event?')"><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?=$r['id']?>"><button>Delete</button></form></td></tr><?php endforeach;?></table></section></main></html>
